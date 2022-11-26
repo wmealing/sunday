@@ -1,0 +1,25 @@
+<.header>
+  Listing Plans
+  <:actions>
+    <.link href={~p"/plans/new"}>
+      <.button>New Plan</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="plans" rows={@plans} row_click={&JS.navigate(~p"/plans/#{&1}")}>
+  <:col :let={plan} label="User"><%= plan.user_id %></:col>
+  <:col :let={plan} label="Patch url"><%= plan.patch_url %></:col>
+  <:col :let={plan} label="Git pkg url"><%= plan.git_pkg_url %></:col>
+  <:action :let={plan}>
+    <div class="sr-only">
+      <.link navigate={~p"/plans/#{plan}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/plans/#{plan}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={plan}>
+    <.link href={~p"/plans/#{plan}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

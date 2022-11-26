@@ -1,0 +1,18 @@
+<.header>
+  Rebuild <%= @rebuild.id %>
+  <:subtitle>This is a rebuild record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/rebuilds/#{@rebuild}/edit"}>
+      <.button>Edit rebuild</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Rebuild"><%= @rebuild.rebuild_id %></:item>
+  <:item title="Build"><%= @rebuild.build_id %></:item>
+  <:item title="Build status"><%= @rebuild.build_status %></:item>
+  <:item title="Build location"><%= @rebuild.build_location %></:item>
+</.list>
+
+<.back navigate={~p"/rebuilds"}>Back to rebuilds</.back>

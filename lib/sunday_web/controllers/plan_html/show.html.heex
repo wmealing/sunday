@@ -1,0 +1,17 @@
+<.header>
+  Plan <%= @plan.id %>
+  <:subtitle>This is a plan record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/plans/#{@plan}/edit"}>
+      <.button>Edit plan</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="User"><%= @plan.user_id %></:item>
+  <:item title="Patch url"><%= @plan.patch_url %></:item>
+  <:item title="Git pkg url"><%= @plan.git_pkg_url %></:item>
+</.list>
+
+<.back navigate={~p"/plans"}>Back to plans</.back>

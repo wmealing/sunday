@@ -1,0 +1,26 @@
+<.header>
+  Listing Rebuilds
+  <:actions>
+    <.link href={~p"/rebuilds/new"}>
+      <.button>New Rebuild</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="rebuilds" rows={@rebuilds} row_click={&JS.navigate(~p"/rebuilds/#{&1}")}>
+  <:col :let={rebuild} label="Rebuild"><%= rebuild.rebuild_id %></:col>
+  <:col :let={rebuild} label="Build"><%= rebuild.build_id %></:col>
+  <:col :let={rebuild} label="Build status"><%= rebuild.build_status %></:col>
+  <:col :let={rebuild} label="Build location"><%= rebuild.build_location %></:col>
+  <:action :let={rebuild}>
+    <div class="sr-only">
+      <.link navigate={~p"/rebuilds/#{rebuild}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/rebuilds/#{rebuild}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={rebuild}>
+    <.link href={~p"/rebuilds/#{rebuild}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

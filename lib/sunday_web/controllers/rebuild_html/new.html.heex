@@ -1,0 +1,19 @@
+<.header>
+  New Rebuild
+  <:subtitle>Use this form to manage rebuild records in your database.</:subtitle>
+</.header>
+
+<.simple_form :let={f} for={@changeset} action={~p"/rebuilds"}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={{f, :rebuild_id}} type="number" label="rebuild_id" />
+  <.input field={{f, :build_id}} type="number" label="build_id" />
+  <.input field={{f, :build_status}} type="text" label="build_status" />
+  <.input field={{f, :build_location}} type="text" label="build_location" />
+  <:actions>
+    <.button>Save Rebuild</.button>
+  </:actions>
+</.simple_form>
+
+<.back navigate={~p"/rebuilds"}>Back to rebuilds</.back>
